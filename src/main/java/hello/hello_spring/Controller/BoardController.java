@@ -1,14 +1,32 @@
 package hello.hello_spring.Controller;
 
+import hello.hello_spring.entity.Board;
+import hello.hello_spring.service.BoardService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.sql.SQLOutput;
 
 @Controller
 public class BoardController {
 
-    @GetMapping("/board/write")
+    @Autowired
+    private BoardService boardService;
+
+    @GetMapping("/board/write") //localhost : 8080/board/write 이 주소로 접속하면
     public String boardwriteForm() {
-            return "boardwrite";
+            return "boardwrite"; // return "" 이란 어떤 View 파일로 보내줄거냐. 내 뷰 html 이름이랑 동일하게.
     }
+
+    @PostMapping("board/writepro")
+    public String boardWritePro(Board board) {
+
+        boardService.write(board);
+
+        return "";
+    }
+
 }
