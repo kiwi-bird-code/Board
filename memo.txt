@@ -1,0 +1,14 @@
+
+# @Entity , @Getter 등 어노테이션 안뜨는 오류
+-> 스프링 프로젝트 처음 생성할 때 디펜던시 설치를 안했음.
+-> JPA , mariadb 등의 디펜던시를 build.gradle 에 추가해줌 -> 그래도 되지 않음.
+-> File -> Setting -> Plugin 에서 lombok을 검색하여 설치 및 적용해줌 -> 그래도 되지 않음
+-> Gradle 리프레쉬 후 Rebuild 후 하니 해결.
+
+
+# 코드에서 jdbc db 관련 에러가 났음
+-> mysql -> maridb로 수정
+-> resources -> application.propeties 에서 디비 관련 설정 해줌
+
+# 각 클래스에서 클래스를 치면 자꾸 빨간글씨뜨고 오류남
+-> import가 안된거임. 내 인텔리제이는 설정상 똑똑하게 다른 폴더에서 자동 import를 안함.
