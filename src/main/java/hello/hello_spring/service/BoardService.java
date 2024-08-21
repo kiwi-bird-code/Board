@@ -21,6 +21,11 @@ public class BoardService {
 
     public List<Board> boardList() {
 
-        return boardRepository.findAll();
+        return boardRepository.findAll(); // 연결된 DB에 있는 데이터를 모두 해당 타입의 List 형태로 반환하는 함수.
+    }
+
+    public Board boardView(Integer id) {
+
+        return boardRepository.findById(id).get();
     }
 }

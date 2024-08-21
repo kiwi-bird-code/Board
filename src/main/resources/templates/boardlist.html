@@ -28,7 +28,12 @@
             <tbody>
                     <tr th:each="board: ${list}">
                         <td th:text="${board.id}"></td>
-                        <td th:text="${board.title}"></td>
+                        <td>
+                            <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
+                        </td>
+<!--                        th:href ...경로에서 맨 마지막에 id 라는 추가 파라미터를 제공한다.-->
+<!--                        즉 /board/view?id=2  이런식으로 URL로 접속하게 한다.-->
+<!--                        참고로 '?' 기호는 쿼리문자열로 URL의 추가 파라미터라는 뜻이다.-->
                     </tr>
             </tbody>
         </table>
