@@ -61,4 +61,14 @@ public class BoardController {
         return "boardview";
     }
 
+    @GetMapping("/board/delete")
+    public String boardDelete( @RequestParam(name= "id") Integer id) {
+
+        //마찬가지로 Integer id만 쓰면 화이트라벨 오류 -> RequestParam으로 명시해주면 정상동작
+
+        boardService.boardDelete(id);
+
+        return "redirect:/board/list";
+    }
+
 }

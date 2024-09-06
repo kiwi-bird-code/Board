@@ -31,6 +31,9 @@
                         <td>
                             <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
                         </td>
+<!--                        <a></a>는 앵커요소로 하이퍼링크를 생성하는데 사용됨>-->
+<!--                        href = Hypertext reference 즉 하이퍼링크 개념임-->
+<!--                        내용 즉 text를 누르면 href="경로"의 경로로 이동시킴-->
 <!--                        th:href ...경로에서 맨 마지막에 id 라는 추가 파라미터를 제공한다.-->
 <!--                        즉 /board/view?id=2  이런식으로 URL로 접속하게 한다.-->
 <!--                        참고로 '?' 기호는 쿼리문자열로 URL의 추가 파라미터라는 뜻이다.-->
