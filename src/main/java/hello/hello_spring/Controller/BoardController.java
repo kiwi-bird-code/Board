@@ -64,11 +64,31 @@ public class BoardController {
     @GetMapping("/board/delete")
     public String boardDelete( @RequestParam(name= "id") Integer id) {
 
-        //마찬가지로 Integer id만 쓰면 화이트라벨 오류 -> RequestParam으로 명시해주면 정상동작
+        //마찬가지로 파라미터에 Integer id만 쓰면 화이트라벨 오류 -> RequestParam으로 명시해주면 정상동작
 
         boardService.boardDelete(id);
 
         return "redirect:/board/list";
     }
 
+    @GetMapping("/board/update")
+    public String boardUpdate(Model model, @RequestParam(name= "id") Integer id) {
+
+        model.addAttribute("board",boardService.boardView(id));
+
+        return "update";
+    }
+
+    @PostMapping("/board/updatepro")
+    public String boardUpdate(@RequestParam(name= "id") Integer id, Board board) {
+
+       Board boardTemp = boardService.boardView(id);
+
+       boardTemp.setTitle(board.getTitle());
+       boardTemp.setContent(board.getContent());
+
+       boardService.write(boardTemp);
+
+        return "redirect:/board/list";
+    }
 }
